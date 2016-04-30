@@ -146,11 +146,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="PostFix.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackNode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="PostFix.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackNode.cpp" />
   </ItemGroup>

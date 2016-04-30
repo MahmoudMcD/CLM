@@ -1,14 +1,14 @@
 #include <iostream>
-#include "Stack.h"
-
+#include <string>
+#include "PostFix.h"
 
 using namespace std;
 
 int main()
 {
-	Stack<int>* stack = new Stack<int>();
-	stack->push(10);
-	stack->push(20);
-	cout << stack->pop() << " " << stack->pop() << endl;
+	string expression;
+	getline(cin, expression);
+	PostFix postFix(expression);
+	cout << postFix.evaluate() << endl;
 	return 0;
 }

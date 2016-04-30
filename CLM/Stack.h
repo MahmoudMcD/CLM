@@ -20,7 +20,6 @@ public:
 			temp = temp->getNext();
 			delete(toBeDeleted);
 		}
-		delete(sentinel);
 	}
 
 	void push(T value)
@@ -48,6 +47,8 @@ public:
 	{
 		return size == 0;
 	}
+
+	int getSize() { return size; }
 
 private:
 	StackNode<T> sentinel; 
