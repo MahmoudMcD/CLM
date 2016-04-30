@@ -146,15 +146,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="InFix.h" />
     <ClInclude Include="PostFix.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StackNode.h" />
+    <ClInclude Include="VariableHandler.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="InFix.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PostFix.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="StackNode.cpp" />
+    <ClCompile Include="VariableHandler.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

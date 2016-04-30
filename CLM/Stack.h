@@ -30,7 +30,6 @@ public:
 
 	T pop()
 	{
-
 		if (!isEmpty())
 		{
 			StackNode<T>* temp = sentinel.getNext();
@@ -41,6 +40,11 @@ public:
 			return tempValue;
 		}
 		return 0;
+	}
+
+	T peak()
+	{
+		return sentinel.getNext()->getValue();
 	}
 
 	bool isEmpty()

@@ -1,14 +1,18 @@
 #include <iostream>
 #include <string>
-#include "PostFix.h"
+#include "VariableHandler.h"
 
 using namespace std;
 
 int main()
 {
 	string expression;
-	getline(cin, expression);
-	PostFix postFix(expression);
-	cout << postFix.evaluate() << endl;
+	VariableHandler variableHandler;
+	while (true)
+	{
+		cout << ">> ";
+		getline(cin, expression);
+		cout << variableHandler.handle(expression) << endl;
+	}
 	return 0;
 }
