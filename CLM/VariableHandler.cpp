@@ -45,10 +45,12 @@ double VariableHandler::handle(string expression)
 			
 			variableName = expression.substr(variableNameStart, variableNameEnd - variableNameStart);
 
+			startOfRest = tempI;
 			while ((tempChar == ' ' || tempChar == '=') && tempI < expression.length())
 			{
 				if (tempChar == '=')
 				{
+					startOfRest = tempI;
 					type = 1;
 					break;
 				}
@@ -59,11 +61,12 @@ double VariableHandler::handle(string expression)
 			// this means that the expression contains an assignment expression
 			if (type)
 			{
-				(*variables)[variableName] = handle(expression.substr(tempI += 2, expression.length() - (--tempI)));
+				while (expression[startOfRest] == '=' || expression[startOfRest] == ' ')
+					startOfRest++;
+
+				// This part works fine if the end of line isn't reached
+				(*variables)[variableName] = handle(expression.substr(startOfRest, expression.length() - (--startOfRest)));
 				cout << variableName << " : " << (*variables)[variableName] << endl;
-				auto variable = variables->find(variableName);
-				if (variable != variables->end())
-					cout << "COool !" << endl;
 				return (*variables)[variableName];
 			}
 			else

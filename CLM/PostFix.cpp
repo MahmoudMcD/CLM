@@ -70,6 +70,9 @@ double PostFix::evaluate()
 		}
 	}
 
+	if (numberInHand)
+		return number;
+
 	if (stack->getSize() != 1)
 		throw new runtime_error("Invalid Expression");
 
