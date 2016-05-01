@@ -93,6 +93,8 @@ void InFix::toPostFix()
 	while (!operatorStack->isEmpty())
 	{
 		tempChar = operatorStack->pop();
+		if (tempChar == '(')
+			throw "Invalid expression triggerd in InFix";
 		newExpression = newExpression + " " + tempChar;
 	}
 }
@@ -112,6 +114,6 @@ int InFix::giveHierarchy(char operatorChar)
 	case '(':
 		return 3;
 	default:
-		throw new runtime_error("inValid operator in inFix to PostFix transformation");
+		throw "Invalid Operator used. triggerd in InFix";
 	}
 }

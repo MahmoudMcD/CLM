@@ -9,6 +9,7 @@ public:
 	{
 		sentinel.setNext(nullptr);
 	}
+
 	~Stack()
 	{
 		// delete all nodes in the stack 

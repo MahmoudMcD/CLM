@@ -8,6 +8,7 @@ public:
 	{
 		next = nullptr;
 	}
+
 	~StackNode()
 	{
 		next = nullptr;

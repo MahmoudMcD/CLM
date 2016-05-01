@@ -12,7 +12,14 @@ int main()
 	{
 		cout << ">> ";
 		getline(cin, expression);
-		cout << variableHandler.handle(expression) << endl;
+		try
+		{
+			cout << variableHandler.handle(expression) << endl;
+		}
+		catch (const char* msg)
+		{
+			cout << msg << endl;
+		}
 	}
 	return 0;
 }

@@ -79,7 +79,7 @@ double VariableHandler::handle(string expression)
 					expression.replace(variableNameStart, variableNameEnd - variableNameStart, s.str());
 				}
 				else
-					throw new exception("Variable Not Found");
+					throw "A variable is used but not initialized. triggered in VariableHandler";
 			}
 		}
 	}

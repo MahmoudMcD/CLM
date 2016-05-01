@@ -19,6 +19,7 @@ double PostFix::evaluate()
 {
 	double number = 0;
 	int numberInHand = 0, dotFound = 0, dotPlace = 0;
+	int numbersCount = 0;
 	char currentChar;
 
 	/* Evaluating PostFix with multi-digit float numbers 
@@ -54,6 +55,7 @@ double PostFix::evaluate()
 				dotFound = 0;
 				number = 0;
 				dotPlace = 0;
+				numbersCount++;
 			}
 		}
 		else
@@ -65,16 +67,17 @@ double PostFix::evaluate()
 				dotFound = 0;
 				dotPlace = 0;
 				number = 0;
+				numbersCount++;
 			}
 			evaluateOperator(currentChar);
 		}
 	}
 
-	if (numberInHand)
+	if (numberInHand && numbersCount <= 1)
 		return number;
 
 	if (stack->getSize() != 1)
-		throw new runtime_error("Invalid Expression");
+		throw "Invalid PostFix Expression.. triggered in PostFix";
 
 	return stack->pop();
 }
@@ -82,6 +85,9 @@ double PostFix::evaluate()
 
 void PostFix::evaluateOperator(char operatorChar)
 {
+	if (stack->getSize() < 2)
+		throw "InValid postFix Expression.. triggered in PostFix";
+
 	double secondNumber = stack->pop();
 	double firstNumber = stack->pop();
 
@@ -103,6 +109,6 @@ void PostFix::evaluateOperator(char operatorChar)
 		stack->push(pow(firstNumber, secondNumber));
 		break;
 	default:
-		throw new runtime_error("Invalid operator"); // TODO Review after execeptions
+		throw "Invalid Operator used. triggerd in PostFix";
 	}
 }
